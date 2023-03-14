@@ -1,26 +1,32 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div>
+        <ThePreloader />
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import animateMainPage from "./main_animations.js";
+import ThePreloader from "./components/ThePreloader.vue";
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+components: {
+    ThePreloader,
+},
+mounted() {
+    animateMainPage();
+},
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style lang="scss" scoped>
+@import './style.css'; 
+
+#mobile-chart {
+    display: none;
+    width: 100%;
+
+    @media screen and (max-width: 575.98px) {
+        display: block;
+    }
 }
 </style>
